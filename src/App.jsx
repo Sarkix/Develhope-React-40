@@ -5,6 +5,7 @@ import Counter from "./Counter";
 import Colors from "./Colors";
 import TodoList from "./TodoList";
 import InteractiveWelcome from "./InteractiveWelcome";
+import Clock from "./Clock";
 
 function App() {
     const colorArray = [
@@ -26,6 +27,7 @@ function App() {
             <h2>Todo List:</h2>
             <TodoList />
             <InteractiveWelcome />
+            <Clock />
         </div>
     );
 }
