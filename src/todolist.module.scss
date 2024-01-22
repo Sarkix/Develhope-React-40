@@ -1,0 +1,38 @@
+/* TodoList.module.scss */
+
+.todoList {
+    margin-bottom: 20px;
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+  
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+  
+      button {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    }
+  
+    input {
+      margin-right: 10px;
+    }
+  
+    button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  }
+  

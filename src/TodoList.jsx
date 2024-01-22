@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./todolist.module.scss";
 
 function TodoList() {
     const [todos, setTodos] = useState([]);
@@ -27,7 +28,8 @@ function TodoList() {
     };
 
     return (
-        <div>
+        <div className={styles.todoList}>
+            {" "}
             <ul>
                 {todos.map((todo, index) => (
                     <li key={index}>
@@ -38,9 +40,18 @@ function TodoList() {
                     </li>
                 ))}
             </ul>
-            <input type="text" value={newTodo} onChange={handleInputChange} />
-            <button onClick={handleAddTodo}>Add Todo</button>
-            <button onClick={handleResetTodos}>Reset Todos</button>
+            <input
+                type="text"
+                value={newTodo}
+                onChange={handleInputChange}
+                className={styles.input}
+            />
+            <button onClick={handleAddTodo} className={styles.button}>
+                Add Todo
+            </button>
+            <button onClick={handleResetTodos} className={styles.button}>
+                Reset Todos
+            </button>
         </div>
     );
 }
