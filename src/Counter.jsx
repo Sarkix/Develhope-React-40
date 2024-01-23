@@ -37,9 +37,42 @@ function Counter({ initialVal, incrementAmount }) {
     return (
         <div>
             <CounterDisplay counter={counter} />
-            <button onClick={handleIncrement}>Increment Value</button>
-            <button onClick={handleDecrement}>Decrement Value</button>
-            <button onClick={handleReset}>Reset Value</button>
+            <button
+                onClick={handleIncrement}
+                style={{
+                    backgroundColor: "#F2545B",
+                    color: "#F3F7F0",
+                    padding: "8px 16px",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                }}
+            >
+                Increment Value
+            </button>
+            <button
+                onClick={handleDecrement}
+                style={{
+                    backgroundColor: "#F2545B",
+                    color: "#F3F7F0",
+                    padding: "8px 16px",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                }}
+            >
+                Decrement Value
+            </button>
+            <button
+                onClick={handleReset}
+                style={{
+                    backgroundColor: "#F2545B",
+                    color: "#F3F7F0",
+                    padding: "8px 16px",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                }}
+            >
+                Reset Value
+            </button>
         </div>
     );
 }
