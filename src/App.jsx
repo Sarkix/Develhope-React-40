@@ -7,6 +7,7 @@ import TodoList from "./TodoList";
 import InteractiveWelcome from "./InteractiveWelcome";
 import Clock from "./Clock";
 import UncontrolledLogin from "./UncontrolledLogin";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
     const colorArray = [
