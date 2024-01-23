@@ -6,6 +6,7 @@ import Colors from "./Colors";
 import TodoList from "./TodoList";
 import InteractiveWelcome from "./InteractiveWelcome";
 import Clock from "./Clock";
+import UncontrolledLogin from "./UncontrolledLogin";
 
 function App() {
     const colorArray = [
@@ -28,6 +29,7 @@ function App() {
             <TodoList />
             <InteractiveWelcome />
             <Clock />
+            <UncontrolledLogin />
         </div>
     );
 }
