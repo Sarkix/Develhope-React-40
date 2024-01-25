@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FocusableInput from "./FocusableInput";
 import MountMessage from "./MountMessage";
 import Counter from "./Counter";
@@ -8,6 +8,7 @@ import InteractiveWelcome from "./InteractiveWelcome";
 import Clock from "./Clock";
 import UncontrolledLogin from "./UncontrolledLogin";
 import Container from "./Container";
+import LanguageContext from "./LanguageContext"; // Importamos el contexto
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -17,40 +18,59 @@ function App() {
         { id: 3, name: "Green" },
     ];
 
+    const [selectedLanguage, setSelectedLanguage] = useState("en"); // Estado para el idioma
+
+    const handleLanguageChange = (event) => {
+        setSelectedLanguage(event.target.value);
+    };
+
     return (
-        <div>
-            <Container title="Focusable Input">
-                <FocusableInput />
-            </Container>
+        <LanguageContext.Provider value={selectedLanguage}>
+            <div>
+                <label>Select Language:</label>
+                <select
+                    value={selectedLanguage}
+                    onChange={handleLanguageChange}
+                >
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    {/* Agrega más opciones según sea necesario */}
+                </select>
 
-            <Container title="Mount Message">
-                <MountMessage />
-            </Container>
+                {/* Renderizamos los componentes dentro del contexto del idioma */}
+                <Container title="Focusable Input">
+                    <FocusableInput />
+                </Container>
 
-            <Container title="Counter">
-                <Counter initialVal={0} incrementAmount={1} />
-            </Container>
+                <Container title="Mount Message">
+                    <MountMessage />
+                </Container>
 
-            <Container title="Color List">
-                <Colors ColorArray={colorArray} />
-            </Container>
+                <Container title="Counter">
+                    <Counter initialVal={0} incrementAmount={1} />
+                </Container>
 
-            <Container title="Todo List">
-                <TodoList />
-            </Container>
+                <Container title="Color List">
+                    <Colors ColorArray={colorArray} />
+                </Container>
 
-            <Container title="Interactive Welcome">
-                <InteractiveWelcome />
-            </Container>
+                <Container title="Todo List">
+                    <TodoList />
+                </Container>
 
-            <Container title="Clock">
-                <Clock />
-            </Container>
+                <Container title="Interactive Welcome">
+                    <InteractiveWelcome />
+                </Container>
 
-            <Container title="Uncontrolled Login">
-                <UncontrolledLogin />
-            </Container>
-        </div>
+                <Container title="Clock">
+                    <Clock />
+                </Container>
+
+                <Container title="Uncontrolled Login">
+                    <UncontrolledLogin />
+                </Container>
+            </div>
+        </LanguageContext.Provider>
     );
 }
 
