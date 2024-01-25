@@ -9,7 +9,7 @@ import Clock from "./Clock";
 import UncontrolledLogin from "./UncontrolledLogin";
 import Container from "./Container";
 import LanguageContext from "./LanguageContext";
-import GithubUser from "./GithubUser";
+import GithubUsers from "./GithubUsers"; // Importamos el nuevo componente GithubUsers
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
                 >
                     <option value="en">English</option>
                     <option value="es">Español</option>
+                    {/* Agrega más opciones según sea necesario */}
                 </select>
 
                 <Container title="Focusable Input">
@@ -61,8 +62,9 @@ function App() {
                     <InteractiveWelcome />
                 </Container>
 
-                <Container title="Github User">
-                    <GithubUser username="sarkix" />
+                {/* Nuevo Container para el componente GithubUsers */}
+                <Container title="Github Users">
+                    <GithubUsers />
                 </Container>
 
                 <Container title="Clock">
