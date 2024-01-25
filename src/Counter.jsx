@@ -1,44 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import { useCounter } from "./useCounter"; // Asegúrate de ajustar la ruta correcta
 import CounterDisplay from "./CounterDisplay";
 
 function Counter({ initialVal, incrementAmount }) {
-    const directionRef = useRef(null);
-
-    const [counter, setCounter] = useState(initialVal);
-
-    const handleIncrement = () => {
-        setCounter((prevCounter) => {
-            directionRef.current = prevCounter < counter ? "down" : "up";
-            return prevCounter + incrementAmount;
-        });
-    };
-
-    const handleDecrement = () => {
-        setCounter((prevCounter) => {
-            directionRef.current = prevCounter > counter ? "up" : "down";
-            return prevCounter - incrementAmount;
-        });
-    };
-
-    const handleReset = () => {
-        setCounter(initialVal);
-    };
-
-    useEffect(() => {
-        console.log("Current counter value:", counter);
-    }, [counter]);
-
-    useEffect(() => {
-        if (directionRef.current !== null) {
-            console.log("Direction of change:", directionRef.current);
-        }
-    }, [directionRef.current]);
+    // Utilizamos el hook useCounter para manejar el estado del contador y obtener funciones asociadas
+    const { count, increment, decrement, reset } = useCounter(initialVal);
 
     return (
         <div>
-            <CounterDisplay counter={counter} />
+            <CounterDisplay counter={count} />
+            {/* Botones para interactuar con el contador, ahora utilizando las funciones del hook */}
             <button
-                onClick={handleIncrement}
+                onClick={increment}
                 style={{
                     backgroundColor: "#F2545B",
                     color: "#F3F7F0",
@@ -50,7 +23,7 @@ function Counter({ initialVal, incrementAmount }) {
                 Increment Value
             </button>
             <button
-                onClick={handleDecrement}
+                onClick={decrement}
                 style={{
                     backgroundColor: "#F2545B",
                     color: "#F3F7F0",
@@ -62,7 +35,7 @@ function Counter({ initialVal, incrementAmount }) {
                 Decrement Value
             </button>
             <button
-                onClick={handleReset}
+                onClick={reset}
                 style={{
                     backgroundColor: "#F2545B",
                     color: "#F3F7F0",
