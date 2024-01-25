@@ -8,7 +8,8 @@ import InteractiveWelcome from "./InteractiveWelcome";
 import Clock from "./Clock";
 import UncontrolledLogin from "./UncontrolledLogin";
 import Container from "./Container";
-import LanguageContext from "./LanguageContext"; // Importamos el contexto
+import LanguageContext from "./LanguageContext";
+import GithubUser from "./GithubUser";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         { id: 3, name: "Green" },
     ];
 
-    const [selectedLanguage, setSelectedLanguage] = useState("en"); // Estado para el idioma
+    const [selectedLanguage, setSelectedLanguage] = useState("en");
 
     const handleLanguageChange = (event) => {
         setSelectedLanguage(event.target.value);
@@ -34,10 +35,8 @@ function App() {
                 >
                     <option value="en">English</option>
                     <option value="es">Español</option>
-                    {/* Agrega más opciones según sea necesario */}
                 </select>
 
-                {/* Renderizamos los componentes dentro del contexto del idioma */}
                 <Container title="Focusable Input">
                     <FocusableInput />
                 </Container>
@@ -60,6 +59,10 @@ function App() {
 
                 <Container title="Interactive Welcome">
                     <InteractiveWelcome />
+                </Container>
+
+                <Container title="Github User">
+                    <GithubUser username="sarkix" />
                 </Container>
 
                 <Container title="Clock">
